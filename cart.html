@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart — Tharsos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=15">
+</head>
+<body>
+  <div id="global-header"></div>
+
+  <main class="cart-main">
+    <div class="cart-container">
+      <h1>Your Cart</h1>
+      <div id="cart-items-container"></div>
+      
+      <div class="cart-summary" id="cart-summary" style="display:none;">
+        <div class="cart-total-row">
+          <span>Subtotal</span>
+          <span id="cart-total-price">$0.00</span>
+        </div>
+        <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 24px;">Shipping and taxes calculated at checkout.</p>
+        
+        <div class="checkout-checkbox">
+          <input type="checkbox" id="terms-check">
+          <label for="terms-check">
+            I agree to the <a href="legal.html#terms" target="_blank">Terms of Service</a> and <a href="legal.html#privacy" target="_blank">Privacy Policy</a>.
+          </label>
+        </div>
+
+        <button class="btn btn-solid btn-full" id="checkout-btn" disabled>Proceed to Checkout</button>
+      </div>
+    </div>
+  </main>
+
+  <div id="global-footer"></div>
+  <script type="module" src="cart.js?v=15"></script>
+</body>
+</html>
