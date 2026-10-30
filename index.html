@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tharsos — Catholic Menswear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=15">
+</head>
+<body>
+  <div id="global-header"></div>
+
+  <main>
+    <section class="shop-hero" id="hero-section">
+      <div class="img-ph shop-hero-bg" id="hero-bg">
+        <span>Campaign Image / Carousel</span>
+      </div>
+      <div class="shop-hero-content">
+        <h1 id="hero-title-text">Shop the New<br>St. Joseph Collection</h1>
+        <a href="#bestsellers" class="btn btn-solid" id="hero-btn-text">Shop Now</a>
+      </div>
+    </section>
+
+    <section class="bestsellers" id="bestsellers">
+      <div class="section-head"><h2>Bestsellers</h2></div>
+      <div class="grid" id="bestsellers-grid">
+        <p style="grid-column: 1 / -1; text-align: center; color: var(--muted);">Loading...</p>
+      </div>
+    </section>
+
+    <section class="bestsellers" id="all-products" style="padding-top: 0;">
+      <div class="section-head" style="display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 24px; text-align: left; border-bottom: 1px solid var(--border); padding-bottom: 24px; margin-bottom: 48px;">
+        <h2>All Products</h2>
+        <input type="text" id="searchInput" placeholder="Search...">
+      </div>
+      <div class="grid" id="all-products-grid"></div>
+    </section>
+  </main>
+
+  <div id="global-footer"></div>
+  <script type="module" src="home.js?v=15"></script>
+</body>
+</html>
