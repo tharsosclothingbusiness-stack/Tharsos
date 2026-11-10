@@ -2,7 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebas
 import { getFirestore, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 // ==========================================
-// FIREBASE EXPORTS (For other JS files)
+// FIREBASE EXPORTS
 // ==========================================
 const firebaseConfig = {
   apiKey: "AIzaSyAKYHT7H2fiixbgrvadNEj10yz5HlIEI1U",
@@ -24,7 +24,12 @@ const headerHTML = `
   <header class="header">
     <div class="header-inner">
       <button class="hamburger" id="hamburger" aria-label="Open navigation"><span></span><span></span><span></span></button>
-      <a href="index.html" class="wordmark">THARSOS</a>
+      
+      <!-- UPDATED LOGO HERE -->
+      <a href="index.html" class="wordmark" aria-label="Tharsos Home">
+        <img src="logo.svg" alt="THARSOS" style="height: 40px; width: auto; object-fit: contain;">
+      </a>
+      
       <nav class="topnav">
         <a href="index.html" class="${currentPage === 'index.html' ? 'active-nav' : ''}">SHOP</a>
         <a href="collections.html" class="${currentPage === 'collections.html' || currentPage === 'collection.html' ? 'active-nav' : ''}">COLLECTIONS</a>
@@ -40,7 +45,13 @@ const headerHTML = `
   
   <div class="overlay" id="overlay"></div>
   <aside class="sidebar" id="sidebar">
-    <div class="sidebar-head"><span class="wordmark">THARSOS</span><button class="close" id="closeSidebar">&times;</button></div>
+    <div class="sidebar-head">
+      <!-- UPDATED SIDEBAR LOGO HERE -->
+      <a href="index.html" class="wordmark">
+        <img src="logo.svg" alt="THARSOS" style="height: 30px; width: auto; object-fit: contain;">
+      </a>
+      <button class="close" id="closeSidebar">&times;</button>
+    </div>
     <nav class="sidebar-nav">
       <a href="index.html">SHOP</a>
       <a href="collections.html">COLLECTIONS</a>
@@ -54,7 +65,13 @@ const headerHTML = `
 const footerHTML = `
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-brand"><p class="wordmark">THARSOS</p><p class="footer-tag">Holy courage in wearable form.</p></div>
+      <div class="footer-brand">
+        <!-- UPDATED FOOTER LOGO HERE -->
+        <a href="index.html" class="wordmark" style="display: block; margin-bottom: 16px;">
+          <img src="logo.svg" alt="THARSOS" style="height: 35px; width: auto; object-fit: contain;">
+        </a>
+        <p class="footer-tag">Holy courage in wearable form.</p>
+      </div>
       <div><h4>SHOP</h4><a href="index.html">All Products</a><a href="collections.html">Collections</a></div>
       <div><h4>HOUSE</h4><a href="mission.html">Mission</a><a href="#" class="wip-trigger">Craftsmanship</a></div>
       <div>
@@ -96,19 +113,16 @@ const globalModalsHTML = `
 // INJECTION & LOGIC
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
-  // Inject HTML into the page
   document.getElementById('global-header').innerHTML = headerHTML;
   document.getElementById('global-footer').innerHTML = footerHTML;
   document.body.insertAdjacentHTML('beforeend', globalModalsHTML);
 
-  // 1. Cart Counter
   const updateCartCount = () => { 
     const el = document.getElementById('cartCount'); 
     if(el) el.innerText = (JSON.parse(localStorage.getItem('tharsos_cart')) || []).length; 
   };
   updateCartCount();
 
-  // 2. Sidebar Logic
   const hamburger = document.getElementById('hamburger');
   const sidebar = document.getElementById('sidebar');
   const overlay = document.getElementById('overlay');
@@ -121,7 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
   if (overlay) overlay.addEventListener('click', closeSidebar);
 
-  // 3. WIP Banner Logic
   const wipTriggers = document.querySelectorAll('.wip-trigger');
   const wipBanner = document.getElementById('wipBanner');
   const closeWipBtn = document.getElementById('closeWip');
@@ -134,7 +147,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   if (closeWipBtn) closeWipBtn.addEventListener('click', () => { wipBanner.classList.remove('open'); document.body.classList.remove('no-scroll'); });
 
-  // 4. Cookie Banner Logic
   const cookieBanner = document.getElementById('cookieBanner');
   const acceptCookiesBtn = document.getElementById('acceptCookies');
   if (!localStorage.getItem('tharsos_cookie_consent') && cookieBanner) {
@@ -147,7 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. Clearance Toggle (Read from Firestore)
   onSnapshot(doc(db, "config", "site"), (docSnap) => {
     if (docSnap.exists()) {
       const data = docSnap.data();
