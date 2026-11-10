@@ -27,7 +27,7 @@ const headerHTML = `
       
       <!-- UPDATED LOGO HERE -->
       <a href="index.html" class="wordmark" aria-label="Tharsos Home">
-        <img src="logo.svg" alt="THARSOS" style="height: 40px; width: auto; object-fit: contain;">
+        <img src="logo.svg" alt="THARSOS" style="height: 55px; width: auto; object-fit: contain;">
       </a>
       
       <nav class="topnav">
@@ -48,7 +48,7 @@ const headerHTML = `
     <div class="sidebar-head">
       <!-- UPDATED SIDEBAR LOGO HERE -->
       <a href="index.html" class="wordmark">
-        <img src="logo.svg" alt="THARSOS" style="height: 30px; width: auto; object-fit: contain;">
+        <img src="logo.svg" alt="THARSOS" style="height: 40px; width: auto; object-fit: contain;">
       </a>
       <button class="close" id="closeSidebar">&times;</button>
     </div>
@@ -68,7 +68,7 @@ const footerHTML = `
       <div class="footer-brand">
         <!-- UPDATED FOOTER LOGO HERE -->
         <a href="index.html" class="wordmark" style="display: block; margin-bottom: 16px;">
-          <img src="logo.svg" alt="THARSOS" style="height: 35px; width: auto; object-fit: contain;">
+          <img src="logo.svg" alt="THARSOS" style="height: 50px; width: auto; object-fit: contain;">
         </a>
         <p class="footer-tag">Holy courage in wearable form.</p>
       </div>
