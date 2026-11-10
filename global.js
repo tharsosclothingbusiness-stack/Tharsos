@@ -1,9 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getFirestore, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-// ==========================================
-// FIREBASE EXPORTS
-// ==========================================
 const firebaseConfig = {
   apiKey: "AIzaSyAKYHT7H2fiixbgrvadNEj10yz5HlIEI1U",
   authDomain: "tharsos-af07d.firebaseapp.com",
@@ -15,9 +12,6 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 
-// ==========================================
-// HTML COMPONENTS
-// ==========================================
 const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
 const headerHTML = `
@@ -26,7 +20,7 @@ const headerHTML = `
       <button class="hamburger" id="hamburger" aria-label="Open navigation"><span></span><span></span><span></span></button>
       
       <a href="index.html" class="wordmark" aria-label="Tharsos Home">
-        <img src="logo.svg" alt="THARSOS" style="height: 55px; width: auto; object-fit: contain;">
+        <img src="logo.svg" alt="THARSOS" style="height: 55px; max-width: 140px; width: auto; object-fit: contain;">
       </a>
       
       <nav class="topnav">
@@ -37,7 +31,6 @@ const headerHTML = `
       </nav>
       
       <div class="header-right">
-        <!-- Sleek SVG Cart Icon -->
         <a href="cart.html" class="cart-icon-link" aria-label="View Cart">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="9" cy="21" r="1"></circle>
@@ -54,7 +47,7 @@ const headerHTML = `
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-head">
       <a href="index.html" class="wordmark">
-        <img src="logo.svg" alt="THARSOS" style="height: 45px; width: auto; object-fit: contain;">
+        <img src="logo.svg" alt="THARSOS" style="height: 45px; max-width: 140px; width: auto; object-fit: contain;">
       </a>
       <button class="close" id="closeSidebar">&times;</button>
     </div>
@@ -73,7 +66,7 @@ const footerHTML = `
     <div class="footer-inner">
       <div class="footer-brand">
         <a href="index.html" class="wordmark" style="display: block; margin-bottom: 16px;">
-          <img src="logo.svg" alt="THARSOS" style="height: 50px; width: auto; object-fit: contain;">
+          <img src="logo.svg" alt="THARSOS" style="height: 50px; max-width: 140px; width: auto; object-fit: contain;">
         </a>
         <p class="footer-tag">Holy courage in wearable form.</p>
       </div>
@@ -115,12 +108,12 @@ const globalModalsHTML = `
   </div>
 `;
 
-// ==========================================
-// INJECTION & LOGIC
-// ==========================================
 document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('global-header').innerHTML = headerHTML;
-  document.getElementById('global-footer').innerHTML = footerHTML;
+  const headerDiv = document.getElementById('global-header');
+  const footerDiv = document.getElementById('global-footer');
+  
+  if (headerDiv) headerDiv.innerHTML = headerHTML;
+  if (footerDiv) footerDiv.innerHTML = footerHTML;
   document.body.insertAdjacentHTML('beforeend', globalModalsHTML);
 
   const updateCartCount = () => { 
